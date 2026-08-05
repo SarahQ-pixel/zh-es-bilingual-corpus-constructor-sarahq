@@ -1,0 +1,19 @@
+input:
+  input_dir: data/corpus_cleaned_1
+  src_doc_name: src_sentences_1
+  tgt_doc_name: tgt_sentences_1
+  idx_doc_name: alignment_1
+
+output:
+  output_dir: data/corpus_cleaned_2
+  src_doc_name: src_sentences_2
+  tgt_doc_name: tgt_sentences_2
+  idx_doc_name: alignment_2
+
+lid_filter_runner:
+  src_lang: zh
+  tgt_lang: es
+
+zh_eliminator:
+
+es_eliminator:

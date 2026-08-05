@@ -1,0 +1,29 @@
+input:
+  chunked_pages_dir: data/pages_chunked
+
+output:
+  align_pages_dir: data/align_pages
+  output_file_prefix: page_pair_md5_
+
+align_page_runner:
+  valid_languages:
+    - zh
+    - es
+
+sequence_matcher:
+  sequence_matcher_threshold: 0.3
+
+length_align:
+  length_align_threshold: 0.4
+  min_length_percentile: 0.5
+
+personalized_align:
+  personalized_align_threshold: 0.6
+
+  tag_weight: 0.5
+  depth_weight: 0.2
+  is_content_weight: 0.3
+
+emb_verif:
+  emb_verif_threshold: 0.6
+  top_text_num: 3

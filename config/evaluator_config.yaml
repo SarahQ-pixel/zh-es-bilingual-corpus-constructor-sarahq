@@ -1,0 +1,74 @@
+input:
+  corpus_final:
+    input_dir: data/corpus_final
+    src_doc_name: src_sentences_v0.0
+    tgt_doc_name: tgt_sentences_v0.0
+    idx_doc_name: alignment_v0.0
+  corpus_refer:
+  #Set this based on the content of the reference corpus. 
+    input_path: data/external/opus_unpc/es-zh.tmx
+  corpus_test:
+    input_dir: data/corpus_test
+    src_doc_name: src_sentences_v0.0
+    tgt_doc_name: tgt_sentences_v0.0
+    idx_doc_name: alignment_v0.0
+
+output:
+  tgt_prediction:
+    dir: data/predictions
+    corpus_final_doc_name: corpus_fi_predictions
+    corpus_refer_doc_name: corpus_re_predictions
+  bleu:
+    dir: data/bleu_result
+    doc_name: result
+  manual:
+    dir: data/manual_check
+    doc_name: manual_check
+
+evaluator_runner:
+  train_pairs: 100000
+  test_pairs: 10000
+  manual_pairs: 100
+  corpus_final_sampled:
+    dir: data/corpus_final_sampled
+    src_doc_name: corpus_final_src
+    tgt_doc_name: corpus_final_tgt
+  corpus_refer_sampled:
+    dir: data/corpus_refer_sampled
+    src_doc_name: corpus_refer_src
+    tgt_doc_name: corpus_refer_tgt
+  corpus_test_sampled:
+    dir: data/corpus_test_sampled
+    src_doc_name: corpus_test_src
+    tgt_doc_name: corpus_test_tgt
+
+sample_corpus_final:
+  random_seed: 42
+
+sample_corpus_refer:
+  random_seed: 42
+  src_lang: "zh"
+  tgt_lang: "es"
+
+sample_corpus_test:
+  random_seed: 42
+
+train_lm:
+  device: auto
+  #Allowed:"auto"or"cpu"or"gpu"
+  seed: 42
+  src_lang: zh
+  tgt_lang: es
+  train_steps: 20000
+  valid_steps: 10000
+  save_checkpoint_steps: 10000
+  checkpoints_dir: checkpoints
+  batch_size: 256
+  learning_rate: 2.0
+  beam_size: 5
+
+bleu_score:
+  lang: es
+
+sample_manual_check:
+  random_seed: 42

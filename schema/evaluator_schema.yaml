@@ -1,0 +1,11 @@
+seed: int
+
+framework: string
+
+train_pairs: int
+
+test_paris: int
+
+bleu_corpus_final: float
+
+bleu_corpus_refer: float

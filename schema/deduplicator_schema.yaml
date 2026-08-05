@@ -1,0 +1,7 @@
+# JSONL schema (per line)
+sentence_id: int
+
+shingles: list[string]
+
+metadata:
+  text: string

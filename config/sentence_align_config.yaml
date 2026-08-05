@@ -1,0 +1,67 @@
+sentence_align_runner:
+  document_format: json
+  #Set the input file format. To support a new format.
+  #implement extract_<format>_<...>.py, according to the internal structure of your input files.
+  #extract_json_1t2.py and extract_xml_1t1.py are provided as reference implementations.
+  document_lang_mod: 1t2
+  #Set the language mode acording to the imput document, according to the internal structure of your input files. 
+  #"1t2" means one document contains text of both languages, implement extract_<...>_<1t2>.py for this mode.
+  #"1t1" means one document contains text of only one language, implement extract_<...>_<1t1>.py for this mode. 
+  input: 
+    1t2:
+      segmented_pages_dir: data/segmentated_pages
+    1t1:
+      zh_segmentated_pages_dir: data/external/un_ofi/UNv1.0-TEI.zh/zh
+      es_segmentated_pages_dir: data/external/un_ofi/UNv1.0-TEI.es/es
+      selected_pair_dir: data/segmentated_pages_test
+  output:
+    aligned_sentences_dir:
+      1t2: data/align_sentences
+      1t1: data/align_sentences_test
+    aligned_doc_name: aligned_sentences
+  max_pairs: 500
+
+sentence_emb:
+  model: paraphrase-multilingual-mpnet-base-v2
+  device: auto   
+  # "auto"or"cpu"or"cuda"
+  normalize: true
+  batch_size: 32
+
+overlap_perso:
+  num_overlaps: 2
+
+  enable_cleaning: true
+  blank_token: "BLANK_LINE"
+
+  max_char_length: 100
+
+vecalign_runner:
+  one_to_many: 1
+  alignment_max_size: 2
+  del_percentile_frac: 0.01
+  search_buffer_size: 30
+  max_size_full_dp: 300
+  costs_sample_size: 3000
+  num_samps_for_norm:  500
+
+extract_json_1t2:
+
+extract_xml_1t1:
+  sentence_xpath: ".//text/body/p/s"
+  sentence_tag: "s"
+  lang_attr: "lang"
+  sentence_id_attr: "id"
+
+  language_tag: "language"
+  language_ident_attr: "ident"
+
+  zh_lang_ident: "zh"
+  es_lang_ident: "es"
+
+page_selector_1t1:
+  random_seed: 42
+  selected_pair_prefix: "pair_seg_md5_"
+  max_pairs: 50
+  zh_default_language: "zh"
+  es_default_language: "es"

@@ -1,0 +1,8 @@
+# IDX schema (per line)
+alignment_id: string
+
+src_sentence_ids: list[int]
+
+tgt_sentence_ids: list[int]
+
+alignment_score: float

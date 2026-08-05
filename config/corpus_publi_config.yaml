@@ -1,0 +1,11 @@
+input:
+  input_dir: data/corpus_cleaned_4
+  src_doc_name: src_sentences_4
+  tgt_doc_name: tgt_sentences_4
+  idx_doc_name: alignment_4
+
+output:
+  output_dir: data/corpus_final
+  src_doc_name: src_sentences_v0.0
+  tgt_doc_name: tgt_sentences_v0.0
+  idx_doc_name: alignment_v0.0

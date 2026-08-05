@@ -1,0 +1,61 @@
+#JSON origin schema:
+alignments: list[
+  {
+    alignment_id: string
+
+    vecalign_alignment:
+      src_indices: list[int]
+      tgt_indices: list[int]
+      raw_tuple: string
+
+    src:
+      file_path: string
+      language: string
+      sentences: list[
+        {
+          sentence_id: string
+        }
+      ]
+
+    tgt:
+      file_path: string
+      language: string
+      sentences: list[
+        {
+          sentence_id: string
+        }
+      ]
+
+    alignment_score: float
+
+  }
+]
+
+#JSONL optimizied schema (per line):
+alignment_id: string
+
+vecalign_alignment:
+  src_indices: list[int]
+  tgt_indices: list[int]
+  raw_tuple: string
+
+src:
+  file_path: string
+  language: string
+  sentences: list[
+    {
+      sentence_id: string
+    }
+  ]
+
+tgt:
+  file_path: string
+  language: string
+  sentences: list[
+    {
+      sentence_id: string
+    }
+  ]
+
+alignment_score: float
+

@@ -1,0 +1,6 @@
+# JSONL schema (per line)
+sentence_id: int
+
+language: string
+
+text: string

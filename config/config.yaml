@@ -1,0 +1,14 @@
+cache:
+  root: cache
+
+  hf: hf
+  transformers: hf/transformers
+  sentence_transformers: hf/st
+
+  torch: torch
+
+  playwright: playwright
+
+  scrapy: scrapy
+
+  nltk: nltk

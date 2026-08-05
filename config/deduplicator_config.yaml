@@ -1,0 +1,30 @@
+input:
+  input_dir: data/corpus_cleaned_3
+  src_doc_name: src_sentences_3
+  tgt_doc_name: tgt_sentences_3
+  idx_doc_name: alignment_3
+
+output:
+  output_dir: data/corpus_cleaned_4
+  src_doc_name: src_sentences_4
+  tgt_doc_name: tgt_sentences_4
+  idx_doc_name: alignment_4
+
+deduplicator_runner:
+  lang_side: src
+  # chose a language side for deduplication, allowed: "src" or "tgt".
+  sentence_shingles_doc_dir: data/sentences_shingles
+  sentence_shingles_doc_name: sentences_shi
+  deduplicator: simhash
+  # chose a deduplicator, allowed: "minhash" or "simhash"
+
+shingle_generator:
+  size: 3
+  lowercase: true
+
+minhash_dedup:
+  num_perm: 128
+  threshold: 0.85
+
+simhash_dedup:
+  distance: 5

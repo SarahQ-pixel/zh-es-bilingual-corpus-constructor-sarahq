@@ -1,0 +1,56 @@
+input:
+  extracted_pages_dir: data/extracted_pages
+
+output:
+  chunked_pages_dir: data/pages_chunked
+
+parser_lid_runner:
+
+lxml_parser:
+  content_tags:
+    - p
+    - h1
+    - h2
+    - h3
+    - h4
+    - h5
+    - h6
+    - li
+    - td
+    - th
+    - blockquote
+  structure_tags:
+    - nav
+    - header
+    - footer
+    - main
+    - aside
+    - article
+    - section
+  ignored_tags:
+    - script
+    - style
+    - noscript
+    - svg
+    - canvas
+    - iframe
+  min_text_length: 0
+
+lid_url:
+  language_markers:
+    zh:
+      - zh
+      - zh-cn
+      - chinese
+    es:
+      - es
+      - spanish
+      - espanol
+  case_sensitive: false 
+
+lid_lm:
+  detector: lingua
+  # Acceptable values: lingua | langid
+  sample_size: 20
+  # Number of text blocks to sample for language detection.
+  random_seed: 42

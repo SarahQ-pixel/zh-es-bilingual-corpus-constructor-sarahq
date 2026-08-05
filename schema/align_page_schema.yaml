@@ -1,0 +1,15 @@
+pair_id: string
+
+zh_doc_id: string
+zh_page_path: string
+
+es_doc_id: string
+es_page_path: string
+
+sequence_matcher_similarity: float
+
+length_align_similarity: float
+
+personalized_align_similarity: float
+
+emb_verif_similarity: float

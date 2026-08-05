@@ -1,0 +1,31 @@
+doc_id: string
+extracted_pages_path: string
+url: string
+url_segments: list
+rendered_html_path: string
+stage_origin: string 
+# NOTE: acceptable values: "lxml" (Stage lxml_parser.py) | "url" (Stage lid_url.py) | "lm" (Stage lid_lm.py) | "nnnn" (default)
+
+language: string
+language_source: string   
+# NOTE: acceptable values: "url" (From lid_url.py) | "lm" (From lid_lm.py) | "nnnn" (default)
+
+chunks:list[
+  {
+    chunk_id: string
+
+    tag: string
+    dom_path: string
+    depth: int
+    is_content: bool
+
+    text_id: int | None 
+    # NOTE: For content blocks: Index of the text block in the rendered HTML, also index of this block in [text]. 
+    # NOTE: For non-content blocks: None.
+    text_length: int | None 
+    # NOTE: For content blocks: The length of the text block. 
+    # NOTE: For non-content blocks: None.
+  }
+]
+
+text: list[string]   

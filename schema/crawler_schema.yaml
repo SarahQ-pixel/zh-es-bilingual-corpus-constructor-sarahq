@@ -1,0 +1,7 @@
+url: string
+raw_html_path: string
+rendered_html_path: string
+language: string
+crawl_timestamp: string
+url_segments: list
+has_js: boolean

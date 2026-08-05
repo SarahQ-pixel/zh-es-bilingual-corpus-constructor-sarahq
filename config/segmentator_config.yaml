@@ -1,0 +1,30 @@
+input:
+  align_pages_dir: data/align_pages
+
+output:
+  segmentated_pages_dir: data/segmentated_pages
+  output_filename_prefix: "pair_seg_md5_"
+
+segmentator_runner:
+
+spacy_seg:
+  sentence_id_prefix:
+    zh: "zh_s_idx_"
+    es: "es_s_idx_"
+  merge_text_length_threshold: 625
+  models:
+    zh: "zh_core_web_sm"
+    es: "es_core_news_sm"
+  sentence_endings:
+    zh:
+      valid:
+        - "。"
+        - "？"
+        - "！"
+      default: "。"
+    es:
+      valid:
+        - "."
+        - "?"
+        - "!"
+      default: "."

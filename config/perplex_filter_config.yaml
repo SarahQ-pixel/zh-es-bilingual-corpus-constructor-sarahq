@@ -1,0 +1,57 @@
+input:
+  input_dir: data/corpus_cleaned_2
+  src_doc_name: src_sentences_2
+  tgt_doc_name: tgt_sentences_2
+  idx_doc_name: alignment_2
+
+output:
+  output_dir: data/corpus_cleaned_3
+  src_doc_name: src_sentences_3
+  tgt_doc_name: tgt_sentences_3
+  idx_doc_name: alignment_3
+
+perplex_filter_runner:
+  src:
+    lang: zh
+    model: hfl/chinese-bert-wwm-ext
+    score_type: pseudo_ppl
+    # Allowed type: "pseudo_ppl" or "ppl"
+  tgt:
+    lang: es
+    model: dccuchile/bert-base-spanish-wwm-cased
+    score_type: pseudo_ppl
+    # Allowed type: "pseudo_ppl" or "ppl"
+  # Please confirm that both side's score_type are the same and the score_type is legal for each model.
+
+perplex_cal:
+  device: auto
+  # allowed: "auto", "cuda" or "cpu"
+  max_length: 512
+
+zh_eliminator:
+  thresholds:
+    short:
+      enable: True
+      max_length: 15
+      threshold: 150.0
+    medium:
+      enable: True
+      max_length: 35
+      threshold: 100.0
+    long:
+    #default 
+      threshold: 50.0
+
+es_eliminator:
+  thresholds:
+    short:
+      enable: True
+      max_length: 45
+      threshold: 450.0
+    medium:
+      enable: True
+      max_length: 105
+      threshold: 300.0
+    long: 
+    #default
+      threshold: 150.0

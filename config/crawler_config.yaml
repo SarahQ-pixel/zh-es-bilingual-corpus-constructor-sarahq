@@ -1,0 +1,50 @@
+output:
+  raw_html_dir: data/raw_html
+  rendered_html_dir: data/rendered_html
+  extracted_pages_dir: data/extracted_pages
+  output_filename_prefix: "page_md5_"
+
+crawler_runner:
+  url_source: config/urls.txt
+  log_level: ERROR
+  max_urls: 3
+  enable_playwright_fallback: true
+  render_delay: 15
+
+scrapy:
+  robotstxt_obey: true
+  download_delay: 15
+  concurrent_requests: 2
+  log_level: INFO
+  depth_limit: 5
+  user_agent: "Corpus-Bilingue-Research-Bot/1.0"
+  allowed_domains: 
+  # NOTE: Set this based on the content of urls.txt
+    - un.org
+  exclude_url_patterns:
+  # NOTE: Set this based on the content of urls.txt
+    - "audio-hub"
+    - "news.un.org"
+    - "www.youtube.com"
+    - "www.un.org/ar"
+    - "www.un.org/fr"
+    - "www.un.org/en"
+    - "www.un.org/ru"
+  traversal_only_patterns:
+  # NOTE: Set this based on the content of urls.txt
+    - "/focus-topic/"
+    - "/topics/"
+    - "/contact"
+  
+  closespider_pagecount: 100 
+  # NOTE: For mode A (large-scale search for unstructured web for multilingual resources), set this much higher than [crawler_runner][max_urls] * [scrapy][page_limit_per_site].
+  # NOTE: For mode B (precise search for structured web for multilingual resources), there is no limit for this number.
+  page_limit_per_site: 5 
+  # NOTE: For mode A only.
+
+playwright:
+  enabled: true
+  timeout: 60000
+  wait_until: "domcontentloaded"
+  headless: true
+  retry: 2

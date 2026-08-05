@@ -1,0 +1,24 @@
+pair_id: string
+pair_path: string
+
+zh_doc_id: string
+zh_page_path: string
+zh_page_language: string
+
+es_doc_id: string
+es_page_path: string
+es_page_language: string
+
+zh_sentences: list[
+  {
+  sentence_id: string
+  text: string
+  }
+]
+
+es_sentences: list[
+  {
+  sentence_id: string
+  text: string
+  }
+]

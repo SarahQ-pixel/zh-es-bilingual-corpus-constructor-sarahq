@@ -1,0 +1,31 @@
+input:
+  input_dir: data/corpus_biulded
+  src_doc_name: src_sentences
+  tgt_doc_name: tgt_sentences
+  idx_doc_name: alignment
+
+output:
+  output_dir: data/corpus_cleaned_1
+  src_doc_name: src_sentences_1
+  tgt_doc_name: tgt_sentences_1
+  idx_doc_name: alignment_1
+
+text_cleaner:
+  html:
+    remove_html: true
+  css:
+    remove_css: true
+  javascript:
+    remove_javascript: true
+  whitespace:
+    normalize_whitespace: true
+
+pair_eliminator:
+  url:
+    remove_url: true
+  email:
+    remove_email: true
+  src:
+    min_src_chars: 5
+  tgt:
+    min_tgt_chars: 12
