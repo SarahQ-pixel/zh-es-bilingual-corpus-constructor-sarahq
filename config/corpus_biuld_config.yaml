@@ -3,18 +3,20 @@ corpus_biuld_runner:
   #Set the input file format. To support a new format.
   #implement corpus_biuld_<format>_<...>.py, according to the internal structure of your input files.
   #corpus_biuld_json_1t2.py and corpus_biuld_xml_1t1.py are provided as reference implementations.
+  #Using the web-page-mining, the input file format should be json.
   document_lang_mod: 1t2
   #Set the language mode acording to the imput document, according to the internal structure of your input files. 
   #"1t2" means one document contains text of both languages, implement corpus_biuld_<...>_<1t2>.py for this mode.
-  #"1t1" means one document contains text of only one language, implement corpus_biuld_<...>_<1t1>.py for this mode. 
+  #"1t1" means one document contains text of only one language, implement corpus_biuld_<...>_<1t1>.py for this mode.
+  #Using the web-page-mining, the document_lang_mod should be 1t2. 
   input:
     align_sentences_path: 
       1t2: data/align_sentences/aligned_sentences.jsonl
-      1t1: data/align_sentences_test/aligned_sentences.jsonl
+      1t1: data/align_sentences_ext/aligned_sentences.jsonl
   output:
     aligned_sentences_dir:
       1t2: data/corpus_biulded
-      1t1: data/corpus_biulded_test
+      1t1: data/corpus_biulded
     src_sentences_doc_name: src_sentences
     tgt_sentences_doc_name: tgt_sentences
     align_idx_doc_name: alignment

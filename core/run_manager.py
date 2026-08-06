@@ -80,6 +80,7 @@ def backup_config(run_context):
 
 EXEMPT_PATHS = [
     "data/external",
+    "data/corpus_test"
 ]
 
 
