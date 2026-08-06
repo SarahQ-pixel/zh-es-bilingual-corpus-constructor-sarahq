@@ -281,7 +281,7 @@ https://www.un.org/dgacm/en/content/uncorpus/Download
 
 #### 4.2.2 Adaption for user-provided corpus for the stage of corpus evaluation
 
-##### Outside downloaded bilingue reference corpus
+##### Outside downloaded bilingue reference corpus:
 Default input schema: TMX document structure (partial example):
 
 ````tmx
@@ -307,7 +307,7 @@ Default input schema: TMX document structure (partial example):
     ...
 ````
 
-##### Bilingue test corpus
+##### Bilingue test corpus:
 
 Default input schema: see `schema/corpus_publi` in the project.
 
