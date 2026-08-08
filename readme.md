@@ -153,6 +153,8 @@ These notebooks are designed for demonstration and reproducibility. Users who wa
 | `colab_full_project_on_driver.ipynb` | Upload the project structure on your Google Drive and excute the project in Colab | 
 | `colab_git_clone_and_data_on_driver.ipynb` | Git Clone the project structure on your Colab, and link some directory with Google Drive (Optional) |
 
+NOTE: Playwright unenabled in the config only. Because this pipeline contain Playwright for rendering pages with JS, but Playwright will have permission error when your Colab want to launch the browser cache of Playwright in your Google Drive. Excute this step with Playwright enabled will not render the page.
+
 ---
 
 ### 1.2 Script-based execution
