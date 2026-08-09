@@ -34,12 +34,6 @@ Thumbs.db
 cache/*
 !cache/.gitkeep
 
-!cache/playwright/
-!cache/playwright/.gitkeep
-
-cache/playwright/*
-!cache/playwright/.gitkeep
-
 
 checkpoints/*
 !checkpoints/.gitkeep
