@@ -411,7 +411,7 @@ def train_model(train_src_path,train_tgt_path,test_src_path,output_prediction_pa
         translate_cmd
     )
 
-    #shutil.rmtree(
-    #    temp_dir,
-    #    ignore_errors=True
-    #)
+    shutil.rmtree(
+        temp_dir,
+        ignore_errors=True
+    )
