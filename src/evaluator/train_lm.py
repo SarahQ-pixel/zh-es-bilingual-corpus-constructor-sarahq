@@ -120,11 +120,31 @@ def tokenize_file(input_path,output_path,tokenizer):
         for line in infile:
             text = line.strip()
             tokenized_text = tokenizer(text)
+            tokenized_text = " ".join(tokenized_text.split())
             outfile.write(
                 tokenized_text
                 +
                 "\n"
             )
+
+
+def normalize_vocab_file(path):
+    path = Path(path)
+
+    text = path.read_text(
+        encoding="utf-8"
+    )
+
+    text = text.replace(
+        "\r\n",
+        "\n"
+    )
+
+    path.write_text(
+        text,
+        encoding="utf-8",
+        newline="\n"
+    )
 
 
 def create_onmt_config(config_path,data_paths,checkpoint_dir,train_config):
@@ -160,13 +180,23 @@ def create_onmt_config(config_path,data_paths,checkpoint_dir,train_config):
         "word_vec_size":256,
         "heads":4,
         "transformer_ff":1024,
+        "position_encoding":True,
         "batch_type":"tokens",
         "batch_size":train_config.get("batch_size",2048),
+        "normalization":"tokens",
+        "optim":"adam",
+        "adam_beta2":0.998,
+        "max_grad_norm":0,
+        "param_init":0,
+        "param_init_glorot":True,
+        "label_smoothing":0.1,
         "num_workers":0,
         "train_steps":train_config.get("train_steps",20000),
         "valid_steps":train_config.get("valid_steps",1000),
         "save_checkpoint_steps":train_config.get("save_checkpoint_steps",5000),
-        "learning_rate":train_config.get("learning_rate",2.0)
+        "learning_rate":train_config.get("learning_rate",2.0),
+        "decay_method":"noam",
+        "warmup_steps":1000,
     }
 
     with open(config_path,"w",encoding="utf-8") as f:
@@ -301,6 +331,16 @@ def train_model(train_src_path,train_tgt_path,test_src_path,output_prediction_pa
         ]
     )
 
+    vocab_path = checkpoint_dir / "vocab"
+
+    normalize_vocab_file(
+        str(vocab_path) + ".src"
+    )
+
+    normalize_vocab_file(
+        str(vocab_path) + ".tgt"
+    )
+
     train_cmd = [
         "-m",
         "onmt.bin.train",
@@ -371,7 +411,7 @@ def train_model(train_src_path,train_tgt_path,test_src_path,output_prediction_pa
         translate_cmd
     )
 
-    shutil.rmtree(
-        temp_dir,
-        ignore_errors=True
-    )
+    #shutil.rmtree(
+    #    temp_dir,
+    #    ignore_errors=True
+    #)
