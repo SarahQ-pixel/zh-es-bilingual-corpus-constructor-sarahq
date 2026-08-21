@@ -15,7 +15,7 @@ sentence_align_runner:
     1t1:
       zh_segmentated_pages_dir: data/external/un_ofi/UNv1.0-TEI.zh/zh
       es_segmentated_pages_dir: data/external/un_ofi/UNv1.0-TEI.es/es
-      selected_pair_dir: data/segmentated_pages
+      selected_pair_dir: data/segmentated_pages_ext
   output:
     aligned_sentences_dir:
       1t2: data/align_sentences
