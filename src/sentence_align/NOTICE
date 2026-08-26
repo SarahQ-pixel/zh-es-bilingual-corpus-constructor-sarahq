@@ -1,0 +1,15 @@
+This directory contains modified source code derived from Vecalign.
+
+Affected file:
+- vecalign_perso.py
+- dp_utils_perso.py
+- overlap_perso.py
+- score_perso.py
+
+Original project:
+"Vecalign: Improved Sentence Alignment in Linear Time and Space"
+Thompson and Koehn, 2019.
+
+The Vecalign-derived file listed above is distributed under the Apache License 2.0.
+Other source files in this directory are original code developed for this project
+and are distributed under the project's main license.
