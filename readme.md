@@ -1,3 +1,9 @@
+# Academic Project Notice
+
+This repository contains the software implementation developed as part of a master's thesis. It is made publicly available primarily for academic documentation, reproducibility, and reference purposes.
+
+The repository should not be considered a general-purpose software project, and no commitment to long-term maintenance or support is implied. The repository may be updated after the thesis experiments for documentation, clarification, or other academic purposes. Such updates do not necessarily correspond to changes in the software version used for the experiments reported in the thesis.
+
 # Project Path Configuration
 
 This project uses relative paths based on the project root directory. 
