@@ -358,6 +358,12 @@ Run result data:
 
 ---
 
+## 7. Supplementary evaluation code
+
+The code contained in the `adition_eval` directory is intended exclusively for the supplementary evaluation and validation conducted as part of the thesis. It is independent of the corpus construction pipeline and does not form part of the tool's pipeline implementation. This directory can be removed without affecting the normal operation or use of the corpus construction tool.
+
+---
+
 # Third-party software
 
 This project uses:
